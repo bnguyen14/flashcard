@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class FlashCard {
@@ -12,7 +14,15 @@ public class FlashCard {
 	private int id;
 	private String question;
 	private String answer;
-	
+	@ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+	private User user;
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public int getId() {
 		return id;
 	}
@@ -31,11 +41,13 @@ public class FlashCard {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	public FlashCard(int id, String question, String answer) {
+	
+	public FlashCard(int id, String question, String answer, User user) {
 		super();
 		this.id = id;
 		this.question = question;
 		this.answer = answer;
+		this.user = user;
 	}
 	public FlashCard() {
 		super();
