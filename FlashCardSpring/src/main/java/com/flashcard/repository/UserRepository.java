@@ -9,7 +9,7 @@ import com.flashcard.model.User;
 
 public interface UserRepository extends CrudRepository<User, Integer>  {
 	
-	@Query(value="select * from user u where u.userName = ?1 and u.password = ?2", nativeQuery=true)
+	@Query(value="select * from user u where u.user_name = ?1 and u.pass_word = ?2", nativeQuery=true)
 	User findUserByLogin(String username, String Password);
 	
 	

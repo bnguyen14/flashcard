@@ -14,10 +14,11 @@ export class LoginComponent implements OnInit {
   loginForm : FormGroup;
   username : FormControl;
   password : FormControl;
-
+  message : string;
   constructor(private UserService:UserService, private router:Router) { }
 
   ngOnInit() {
+    this.message = "Welcome to Flash Cards!"
     this.username = new FormControl('');
     this.password = new FormControl('');
     this.loginForm = new FormGroup({
@@ -28,9 +29,23 @@ export class LoginComponent implements OnInit {
 
   login() {
     var user = new User();
-    user.username = this.loginForm.value.username;
-    user.password = this.loginForm.value.password;
-    this.UserService.login(user);
+    user.userName = this.loginForm.value.username;
+    user.passWord = this.loginForm.value.password;
+    //console.log("at login method: " + user.userName + ", " + user.passWord);
+    this.UserService.login(user).subscribe(
+      (data : number) => {
+            console.log(data);
+            if(data==1){
+              this.UserService.loggedIn = true;
+              this.UserService.userchange.next(user.userName);
+              this.router.navigate(['/Home']);
+            }else{
+              this.message = "Incorrect Username/Password!"
+            }
+          }, error => {
+            console.log(error)
+          }
+    );
   }
 
   register() {

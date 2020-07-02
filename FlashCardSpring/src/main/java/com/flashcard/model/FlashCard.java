@@ -12,6 +12,7 @@ public class FlashCard {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	private String subject;
 	private String question;
 	private String answer;
 	@ManyToOne
@@ -29,6 +30,13 @@ public class FlashCard {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
 	public String getQuestion() {
 		return question;
 	}
@@ -42,10 +50,11 @@ public class FlashCard {
 		this.answer = answer;
 	}
 	
-	public FlashCard(int id, String question, String answer, User user) {
+	public FlashCard(int id, String question, String subject, String answer, User user) {
 		super();
 		this.id = id;
 		this.question = question;
+		this.subject = subject;
 		this.answer = answer;
 		this.user = user;
 	}

@@ -22,11 +22,20 @@ export class UserService {
   }
 
   login(user:User) {
-    if(user.username=='admin' && user.password=='password'){
-      this.loggedIn = true;
-      this.userchange.next(user.username);
-      this.router.navigate(['/Home']);
-    }
+    //console.log("front end: " + user.userName + "," + user.passWord);
+    return this.httpClient.post('http://localhost:8088/user/login',user);
+    // this.httpClient.post('http://localhost:8088/user/login',user).subscribe(
+    //   (data : number) => {
+    //     console.log(data);
+    //     if(data==1){
+    //       this.loggedIn = true;
+    //       this.userchange.next(user.userName);
+    //       this.router.navigate(['/Home']);
+    //     }
+    //   }, error => {
+    //     console.log(error)
+    //   }
+    // );
   }
 
   logout(){
@@ -35,7 +44,7 @@ export class UserService {
   }
 
   register(user:User){
-    console.log(user.username);
-    console.log(user.password);
+    console.log(user.userName);
+    console.log(user.passWord);
   }
 }
