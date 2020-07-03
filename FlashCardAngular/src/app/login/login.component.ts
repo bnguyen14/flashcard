@@ -27,24 +27,23 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login() {
+  login() { 
     var user = new User();
     user.userName = this.loginForm.value.username;
     user.passWord = this.loginForm.value.password;
     //console.log("at login method: " + user.userName + ", " + user.passWord);
     this.UserService.login(user).subscribe(
-      (data : number) => {
-            console.log(data);
-            if(data==1){
-              this.UserService.loggedIn = true;
-              this.UserService.userchange.next(user.userName);
-              this.router.navigate(['/Home']);
-            }else{
-              this.message = "Incorrect Username/Password!"
-            }
-          }, error => {
-            console.log(error)
-          }
+      (response) => {
+        if(response.status==200){
+          console.log(response);
+          this.UserService.loggedIn = true;
+          this.UserService.user = response.body;
+          // this.UserService.userchange.next(user.userName);
+          this.router.navigate(['/Home']);
+        }else{
+          this.message = "Incorrect Username/Password!";
+        }
+      }
     );
   }
 

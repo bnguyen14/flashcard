@@ -24,21 +24,24 @@ public class UserController {
 	private UserRepository userRepo;
 	
 	@PostMapping(path="/login")
-	public int login(@RequestBody User user){
+	public ResponseEntity<User> login(@RequestBody User user){
 		System.out.println("user: " + user.getUserName() + ", " + user.getPassWord());
 		User userResult = userRepo.findUserByLogin(user.getUserName(), user.getPassWord());
 		//System.out.println("result: " + userResult.getUserName() + ", " + userResult.getPassWord());
-		if(userResult==null) {
-			return -1;
+		
+		if(userResult!=null) {
+			return new ResponseEntity<User>(userResult,HttpStatus.OK);
 		}else {
-			return 1;
+			return new ResponseEntity<User>(userResult,HttpStatus.BAD_REQUEST);
 		}
+		
 		
 	}
 	
 	@PostMapping(path="/register")
-	public @ResponseBody String register(@RequestBody User user) {
+	public ResponseEntity<User> register(@RequestBody User user) {
 		userRepo.save(user);
-		return "Registered User";
+		
+		return new ResponseEntity<User>(userRepo.findUserByLogin(user.getUserName(), user.getPassWord()),HttpStatus.OK);
 	}
 }

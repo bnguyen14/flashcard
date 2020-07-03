@@ -1,3 +1,8 @@
 <div style="padding-top: 50px; padding-bottom: 50px;">Welcome {{username}}</div>
-<div><button>Study</button></div>
-<div><button>Manage</button></div>
+
+<div>
+    <button (click)="study()" mat-stroked-button color="primary" style="width:100px;">Study</button>
+</div>
+<div>
+    <button (click)="manage()" mat-stroked-button color="primary" style="width:100px;">Manage</button>
+</div>

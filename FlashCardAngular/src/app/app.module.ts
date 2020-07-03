@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ManageCardsComponent } from './manage-cards/manage-cards.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ManageCardsComponent } from './manage-cards/manage-cards.component';
     HomeComponent,
     LogoutComponent,
     PageNotFoundComponent,
-    ManageCardsComponent
+    ManageCardsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

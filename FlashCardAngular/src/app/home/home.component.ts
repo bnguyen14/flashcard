@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   username : string;
   constructor(private UserService : UserService, private Router : Router) {
-    if(UserService.username){
-      this.username = this.UserService.username;
+    if(UserService.user){
+      this.username = this.UserService.user.userName;
     }else{
       // this.Router.navigate(['']);
     }
