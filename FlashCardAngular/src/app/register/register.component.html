@@ -1,4 +1,4 @@
-<form [formGroup]='loginForm'>
+<form [formGroup]='registerForm'>
     <div style="padding-top: 20px;">    
         <!-- <h1 style="text-align: center;">{{message}}</h1>     -->
 
@@ -29,8 +29,6 @@
             <mat-form-field appearance="fill" style="width: 300px;">
                 <mat-label>Confirm Password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'" [formControl]='passConfirm'>
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
             </mat-form-field>
         </div>
         <div>

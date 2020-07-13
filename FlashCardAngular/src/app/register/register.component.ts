@@ -40,11 +40,23 @@ export class RegisterComponent implements OnInit {
       user.passWord = this.registerForm.value.password;
       this.UserService.register(user).subscribe(
         (response) => {
-          
+          if(response.status==200){
+            this.UserService.loggedIn = true;
+            this.UserService.user = response.body;
+            this.router.navigate(['/Home']);
+          }else{
+            if(response.body.email && response.body.userName){
+              this.message="username and email are taken!";
+            }else if(response.body.email){
+              this.message="email is taken!";
+            }else{
+              this.message="username is taken!";
+            }
+          }
         }
       )
     }else{
-
+      this.message="passwords do not match!";
     }
 
   }

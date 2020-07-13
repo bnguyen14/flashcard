@@ -40,8 +40,31 @@ public class UserController {
 	
 	@PostMapping(path="/register")
 	public ResponseEntity<User> register(@RequestBody User user) {
-		userRepo.save(user);
-		
-		return new ResponseEntity<User>(userRepo.findUserByLogin(user.getUserName(), user.getPassWord()),HttpStatus.OK);
+		try {
+			userRepo.save(user);
+			return new ResponseEntity<User>(userRepo.findUserByLogin(user.getUserName(), user.getPassWord()),HttpStatus.OK);
+		}catch(Exception e) {
+			e.printStackTrace();
+			if(userRepo.findEmail(user.getEmail()) && userRepo.findUsername(user.getUserName())) {
+				return new ResponseEntity<User>(new User() {
+					{
+						setEmail("emailTaken");
+						setUserName("usernameTaken");
+					}
+				}, HttpStatus.BAD_REQUEST);
+			}else if(userRepo.findEmail(user.getEmail())){
+				return new ResponseEntity<User>(new User() {
+					{
+						setEmail("emailTaken");
+					}
+				}, HttpStatus.BAD_REQUEST);
+			}else {
+				return new ResponseEntity<User>(new User() {
+					{
+						setUserName("usernameTaken");
+					}
+				}, HttpStatus.BAD_REQUEST);
+			}
+		}
 	}
 }
