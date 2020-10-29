@@ -48,6 +48,5 @@ export class UserService {
   register(user:User){
     console.log("front end: " + user.userName + "," + user.passWord);
     return this.httpClient.post<User>('http://localhost:8088/user/register',user,{observe: 'response'});
-    
   }
 }

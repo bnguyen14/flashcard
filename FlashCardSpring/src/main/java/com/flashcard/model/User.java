@@ -20,6 +20,8 @@ public class User {
 	private String email;
 	private String passWord;
 	@OneToMany(mappedBy="user")
+	private List<Subject> subjects;
+	@OneToMany(mappedBy="user")
 	private List<FlashCard> flashcards;
 	public int getId() {
 		return id;
@@ -45,18 +47,26 @@ public class User {
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
 	}
+	public List<Subject> getSubjects() {
+		return subjects;
+	}
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
+	}
 	public List<FlashCard> getFlashcards() {
 		return flashcards;
 	}
 	public void setFlashcards(List<FlashCard> flashcards) {
 		this.flashcards = flashcards;
 	}
-	public User(int id, String userName, String email, String passWord, List<FlashCard> flashcards) {
+	public User(int id, String userName, String email, String passWord, List<Subject> subjects,
+			List<FlashCard> flashcards) {
 		super();
 		this.id = id;
 		this.userName = userName;
 		this.email = email;
 		this.passWord = passWord;
+		this.subjects = subjects;
 		this.flashcards = flashcards;
 	}
 	public User() {

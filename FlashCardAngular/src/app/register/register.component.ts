@@ -58,7 +58,6 @@ export class RegisterComponent implements OnInit {
     }else{
       this.message="passwords do not match!";
     }
-
   }
 
 }

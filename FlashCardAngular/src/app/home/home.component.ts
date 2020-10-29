@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  username : string;
+  username : String;
+  message : String;
   constructor(private UserService : UserService, private Router : Router) {
     if(UserService.user){
-      this.username = this.UserService.user.userName;
+      
     }else{
       // this.Router.navigate(['']);
     }
