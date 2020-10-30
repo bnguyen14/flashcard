@@ -18,12 +18,16 @@
                 </button>
             </mat-form-field>
         </div>
-
-        <div>
-            <button (click)="login()" mat-stroked-button color="primary" style="width:100px;">Login</button>
-        </div>
-        <div style="padding-top: 10px;">
-            <button (click)="register()" mat-stroked-button color="primary" style="width:100px;">Register</button>
-        </div>
+        <span>
+            <div>
+                <button mat-button mat-stroked-button (click)="login()" color="primary" style="width:100px;">Login</button>
+            </div>
+        </span>
+        <span>
+            <div style="padding-top: 10px;">
+                <button mat-button mat-stroked-button (click)="register()" color="primary" style="width:100px;">Register</button>
+            </div>
+        </span>
+            
     </div>
 </form>

@@ -15,6 +15,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -44,7 +45,8 @@ import { RegisterComponent } from './register/register.component';
     MatInputModule,
     FormsModule, 
     ReactiveFormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
