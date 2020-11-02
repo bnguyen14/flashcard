@@ -1,0 +1,21 @@
+<!-- <div class="card-container"> -->
+
+    <div class='flippable-card' [ngClass]="{'flipped':flipped}" >
+        <mat-card class="dashboard-card">
+            <mat-card-title>
+            <button class="more-button-right" mat-icon-button (click)='flipped = !flipped'><mat-icon>flip_camera_android</mat-icon></button>
+            </mat-card-title>
+            <mat-card-content>
+                FRONT SIDE
+            </mat-card-content>
+        </mat-card>
+        <mat-card class='dashboard-card back'>
+            <mat-card-title>
+                <button class="more-button-right" mat-icon-button (click)='flipped = !flipped'><mat-icon>flip_camera_android</mat-icon></button>
+            </mat-card-title>
+            <mat-card-content>
+                BACK SIDE
+            </mat-card-content>
+        </mat-card>
+    </div>
+<!-- </div> -->

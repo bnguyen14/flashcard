@@ -28,5 +28,9 @@ export class AppComponent {
     console.log(this.UserService.loggedIn);
     this.Router.navigate(['/Logout']);
   }
+
+  home(){
+    this.Router.navigate(['']);
+  }
 }
 

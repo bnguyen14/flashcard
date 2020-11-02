@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   }
 
   study(){
-
+    
   }
 
   manage(){

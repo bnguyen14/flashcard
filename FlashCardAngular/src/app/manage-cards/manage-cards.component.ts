@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manage-cards.component.css']
 })
 export class ManageCardsComponent implements OnInit {
-    constructor() { 
+  constructor() { 
   }
 
   ngOnInit(): void {
+
   }
 
 }

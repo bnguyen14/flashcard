@@ -1,5 +1,5 @@
 <mat-toolbar>
-    <span>{{title}}</span>
+    <span><a (click)='home()' style="cursor: pointer;">{{title}}</a></span>
     <span class="spacer"></span>
     <span *ngIf="isLoggedIn; else elseBlock" style="text-align: end;"><a (click)='logOut()' style="cursor: pointer;">Log Out</a></span>
     <ng-template #elseBlock><a routerLink=''>Log In</a></ng-template>
@@ -9,3 +9,17 @@
 
 
 <router-outlet></router-outlet>
+
+
+<mat-grid-list cols="2">
+    <mat-grid-tile>
+        <app-card></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <app-card></app-card>
+    </mat-grid-tile>
+    
+</mat-grid-list>
+
+    
+

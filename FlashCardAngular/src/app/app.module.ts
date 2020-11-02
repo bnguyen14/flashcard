@@ -16,12 +16,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ManageCardsComponent } from './manage-cards/manage-cards.component';
 import { RegisterComponent } from './register/register.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { RegisterComponent } from './register/register.component';
     LogoutComponent,
     PageNotFoundComponent,
     ManageCardsComponent,
-    RegisterComponent
+    RegisterComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { RegisterComponent } from './register/register.component';
     FormsModule, 
     ReactiveFormsModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

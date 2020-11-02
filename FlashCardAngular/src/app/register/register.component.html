@@ -31,8 +31,8 @@
                 <input matInput [type]="hide ? 'password' : 'text'" [formControl]='passConfirm'>
             </mat-form-field>
         </div>
-        <div>
-            <button (click)="register()" mat-stroked-button color="primary" style="width:100px;">Register</button>
-        </div>
+        <span>
+            <button mat-button mat-stroked-button  (click)="register()"color="primary" style="width:100px;">Register</button>
+        </span>
     </div>
 </form>
